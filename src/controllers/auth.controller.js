@@ -20,7 +20,7 @@ export const register = async (req, res) => {
       username,
       email,
       password: passwordHash,
-      role: role || "reader", //Si no se envía, se asigna el valor por defecto
+      role: "reader", //Si no se envía, se asigna el valor por defecto
     });
 
     //Se guarda el usuario

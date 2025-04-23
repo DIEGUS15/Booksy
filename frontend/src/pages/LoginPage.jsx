@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import "../styles/LoginPage.css";
 
 function LoginPage() {
   const { signin, isAuthenticated, errors: signinErrors } = useAuth();
@@ -79,8 +80,11 @@ function LoginPage() {
           </button>
         </form>
       </div>
-      <p>
-        Don't have an account? <Link to="/register">Sign up</Link>
+      <p className="regirect-text">
+        Don't have an account?{" "}
+        <Link to="/register" className="redirect-link">
+          Sign up
+        </Link>
       </p>
     </div>
   );

@@ -17,19 +17,20 @@ import { checkRole } from "../middlewares/checkRole.js";
 
 const router = Router();
 
-router.get("/books", authRequired, getBooks);
-router.get("/books/:id", authRequired, getBook);
-router.get("/books/:genre", authRequired, getBooksByGenre);
-router.get("/books/search", authRequired, searchBooks);
-router.get("/books/sort", authRequired, checkRole(["admin"]), getSortedBooks);
-router.get(
-  "/books/sort",
-  authRequired,
-  checkRole(["admin"]),
-  getAdvancedBooksList
-);
-router.post("/books", authRequired, checkRole(["admin"]), createBook);
-router.put("/books/:id", authRequired, checkRole(["admin"]), updateBook);
-router.delete("/books/:id", authRequired, checkRole(["admin"]), deleteBook);
+// Agrupar rutas con el mismo prefijo
+const booksRouter = Router();
+
+booksRouter.get("/", checkRole(["admin"]), getBooks);
+booksRouter.get("/search", searchBooks);
+booksRouter.get("/sort", checkRole(["admin"]), getSortedBooks);
+booksRouter.get("/advanced", checkRole(["admin"]), getAdvancedBooksList);
+booksRouter.get("/:id", getBook);
+booksRouter.get("/:genre", getBooksByGenre);
+booksRouter.post("/", checkRole(["admin"]), createBook);
+booksRouter.put("/:id", checkRole(["admin"]), updateBook);
+booksRouter.delete("/:id", checkRole(["admin"]), deleteBook);
+
+// Aplicar middleware de autenticación a todas las rutas de tareas
+router.use("/books", authRequired, booksRouter);
 
 export default router;

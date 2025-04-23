@@ -1,0 +1,135 @@
+/* NavBar.css */
+.navbar {
+    background-color: #1f2937;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    padding: 0 50px;
+  }
+  
+  .navbar-logo {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin-right: 2rem;
+  }
+  
+  .nav-item {
+    height: 80px;
+    padding: 0 1rem;
+  }
+  
+  .nav-links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+  }
+  
+  .nav-links:hover {
+    color: #4ade80;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-icon {
+    display: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  /* Estilos para responsividad */
+  @media screen and (max-width: 960px) {
+    .navbar-container {
+      padding: 0 30px;
+    }
+    
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 90vh;
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .nav-menu.active {
+      background: #1f2937;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+  
+    .nav-item {
+      height: auto;
+      padding: 2rem 0;
+    }
+  
+    .nav-links {
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+      display: table;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+
+  .logout-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    font-family: inherit;
+  }
+  
+  .logout-btn:hover {
+    color: #4ade80;
+    transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 960px) {
+    .logout-btn {
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+      display: table;
+    }
+  }
